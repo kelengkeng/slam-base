@@ -94,7 +94,7 @@ def get_readable_message():
         msg = ""
         for download in list(download_dict.values()):
             msg += f"💾 <code>{download.name()}</code>"
-            msg += f"\<i>{download.status()}</i>"
+            msg += f"\n<i>{download.status()}</i>"
             if download.status() != MirrorStatus.STATUS_ARCHIVING and download.status() != MirrorStatus.STATUS_EXTRACTING:
                 msg += f"\n🌀 <code>{get_progress_bar_string(download)} {download.progress()}</code>"
                 if download.status() == MirrorStatus.STATUS_DOWNLOADING:
@@ -109,7 +109,7 @@ def get_readable_message():
                 except:
                     pass
             if download.status() == MirrorStatus.STATUS_DOWNLOADING:
-                msg += f"\n<b>❌ /cancel</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f"\n<b>❌ /cancel</b> <code>{download.gid()}</code>"
             msg += "\n\n"
         return msg
 
