@@ -34,16 +34,16 @@ def stats(update, context):
     cpuUsage = psutil.cpu_percent(interval=0.5)
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage('/').percent
-    stats = f'<b>🧭 Bot Uptime:</b> <code>{currentTime}</code>\n' \
-            f'<b>Start Time:</b> <code>{current}</code>\n' \
-            f'<b>💾 Total disk space:</b> <code>{total}</code>\n' \
+    stats = f'<b>💾 Total disk space:</b> <code>{total}</code>\n' \
             f'<b>📀 Used:</b> <code>{used}</code>\n' \
-            f'<b>💿 Free:</b> <code>{free}</code>\n\n' \
-            f'📊Data Usage📊\n<b>🔼 Upload:</b> <code>{sent}</code>\n' \
+            f'<b>💿 Free:</b> <code>{free}</code>\n' \
+            f'<b>🧭 Bot Uptime:</b> <code>{currentTime}</code>\n' \
+            f'<b>📅 Start Time:</b> <code>{current}</code>\n\n' \
+            f'📊Data Usage\n<b>🔼 Upload:</b> <code>{sent}</code>\n' \
             f'<b>🔽 Down:</b> <code>{recv}</code>\n\n' \
             f'<b>🎛 CPU:</b> <code>{cpuUsage}%</code> ' \
-            f'<b>RAM:</b> {memory}% ' \
-            f'<b>Disk:</b> {disk}%'
+            f'<b>RAM:</b> <code>{memory}%</code> ' \
+            f'<b>Disk:</b> <code>{disk}%</code>'
     update.effective_message.reply_photo("https://telegra.ph/file/db03910496f06094f1f7a.jpg", stats, parse_mode=ParseMode.HTML)
 
 
